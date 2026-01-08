@@ -1,0 +1,89 @@
+---
+title: '0.2: Download Course & Get Started'
+description: 'Download CC4E course materials and launch your first interactive lesson with Claude Code.'
+keywords: 'claude code course, download claude code course, start claude code lesson'
+---
+
+## 0.2: Download & Start
+
+- **Time to Complete:** 5 minutes
+- **Prerequisites:** Claude Code installed ([0.1](/getting-started/installation))
+
+## Download the Course Materials
+
+### Option 1: One-Line Command (Recommended)
+
+**Mac/Linux:**
+```bash
+cd ~/Documents && \
+curl -L https://github.com/carlvellotti/claude-code-everyone-course/releases/latest/download/complete-course.zip -o cc4e-course.zip && \
+unzip cc4e-course.zip && \
+cd cc4e-course && \
+claude "/start-1-1"
+```
+
+**Windows:** Download the zip from the link below, extract to Documents, then follow Option 2 or 3.
+
+### Option 2: Let Claude Do It
+
+This demonstrates Claude Code's core principle: describe what you want, Claude handles implementation.
+
+1. Open terminal, type `claude` to start Claude Code
+2. Tell Claude: "Download the course materials from https://github.com/carlvellotti/claude-code-everyone-course/releases/latest/download/complete-course.zip and extract it to a folder called cc4e-course in my Documents folder"
+3. Exit and navigate: `exit`, then `cd ~/Documents/cc4e-course && claude`
+
+### Option 3: Manual Download
+
+1. Download from [GitHub Releases](https://github.com/carlvellotti/claude-code-everyone-course/releases/latest)
+2. Extract zip to your Documents folder
+3. Open terminal in the course folder and type `claude`
+
+## Open Claude Code from the Course Folder
+
+If you used Option 1, this happens automatically.
+
+If you used Option 2 or 3, open terminal in the course folder:
+- **Mac:** Right-click the folder in Finder → Services → New Terminal at Folder
+- **Windows:** Right-click the folder → Open in Terminal
+
+Then type `claude` and press Enter.
+
+> **Important:** Claude only sees files in the folder where you launch it. Always start Claude Code from the course folder.
+
+## Start Your First Lesson
+
+Once Claude Code is running from the course folder:
+
+```
+/start-1-1
+```
+
+Claude will begin teaching you interactively. Follow along and respond when prompted.
+
+## Common Questions
+
+### "Can I change the download location?"
+Yes, just remember the path for the `cd` command.
+
+### "What if the download fails?"
+Try manual download from [GitHub Releases](https://github.com/carlvellotti/claude-code-everyone-course/releases/latest).
+
+### "Can I pause and come back later?"
+Yes! Use `/resume` to pick up where you left off, or just run the lesson's `/start` command again.
+
+---
+
+## What's Next
+
+Type `/start-1-1` inside Claude Code to begin Module 1!
+
+Or continue reading the reference guides:
+**[1.1: Course Introduction →](/fundamentals/course-intro)**
+
+---
+
+**About This Course**
+
+Created by [Carl Vellotti](https://www.linkedin.com/in/carlvellotti/). Feedback welcome on [X](https://x.com/carlvellotti) or [LinkedIn](https://www.linkedin.com/in/carlvellotti/).
+
+Join the community at [ccforeveryone.com](https://ccforeveryone.com).
