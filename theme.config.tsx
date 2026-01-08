@@ -38,7 +38,7 @@ export default {
     const pageTitle = isHome
       ? 'Learn Claude Code IN Claude Code! – Claude Code for Everyone'
       : (title ? `${title} – Claude Code for Everyone` : 'Claude Code for Everyone')
-    const description = frontMatter?.description || 'Learn Claude Code IN Claude Code! Free course for non-technical people.'
+    const description = frontMatter?.description || 'Learn Claude Code IN Claude Code! – Free course for non-technical people.'
     const ogImage = frontMatter?.ogImage || `${siteUrl}/images/better-graphic.png`
     const url = `${siteUrl}${asPath}`
 
