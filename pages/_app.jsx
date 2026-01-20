@@ -1,3 +1,4 @@
+import 'nextra-theme-docs/style.css'
 import '../styles/globals.css'
 import EmailPopup from '../components/EmailPopup'
 import { useEffect } from 'react'

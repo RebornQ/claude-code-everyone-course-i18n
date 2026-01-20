@@ -1,7 +1,7 @@
 import nextra from 'nextra'
 
 const withNextra = nextra({
-  theme: 'nextra-theme-docs',
+  theme: './theme',
   themeConfig: './theme.config.tsx',
   defaultShowCopyCode: true
 })
@@ -13,4 +13,3 @@ const config = {
 }
 
 export default withNextra(config)
-
