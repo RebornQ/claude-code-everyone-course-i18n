@@ -1,15 +1,23 @@
 import React from 'react'
 import { useConfig } from 'nextra-theme-docs'
 import { useRouter } from 'next/router'
+import LanguageSwitch from './components/LanguageSwitch'
 
 export default {
   logo: <span style={{ fontWeight: 600 }}>Claude Code for Everyone</span>,
+  navbar: {
+    extraContent: <LanguageSwitch />
+  },
   project: {
     link: 'https://github.com/carlvellotti/claude-code-everyone-course'
   },
   docsRepositoryBase: 'https://github.com/carlvellotti/claude-code-everyone-course/blob/main/website',
   feedback: {
-    content: 'Give Carl feedback →',
+    content: function FeedbackContent() {
+      const { asPath } = useRouter()
+      const isChinese = asPath === '/zh' || asPath.startsWith('/zh/')
+      return isChinese ? '给 Carl 提反馈 →' : 'Give Carl feedback →'
+    },
     useLink: () => 'mailto:carl@fullstackpm.com?subject=CC4E%20Feedback'
   },
   editLink: {

@@ -1,0 +1,85 @@
+---
+title: '2.4：GitHub'
+description: '用版本控制把代码备份到云端，并为部署做准备。'
+keywords: 'GitHub,Git,版本控制,仓库,push'
+---
+
+## 2.4：GitHub
+
+- **预计用时：** 15 分钟
+
+> **互动课程：** 在 Claude Code 里运行 `/start-2-4`
+
+**本课目标：** 把你的项目推送到一个私有 GitHub 仓库。
+
+## 什么是版本控制（Version Control）？
+
+版本控制是一套系统，用于记录你的文件随时间发生的每一次变化。
+
+你可以把它理解成 Word 的“修订”功能，但作用范围是整个项目。它能让你：
+- 查看每次改动的历史
+- 回到任意旧版本
+- 撤销错误
+
+它能永久解决 “Final_v3_REAL_FINAL.docx” 这种地狱问题。
+
+## Git vs GitHub
+
+它们相关，但不是同一个东西：
+
+**Git** = 在你电脑上运行的版本控制系统，负责本地记录变化。
+
+**GitHub** = 一个网站，用于在云端保存 Git 仓库。
+
+类比：Git 像 Microsoft Word（工具），GitHub 像 Google Drive（存放/分享的地方）。
+
+## 关键术语
+
+| 术语 | 含义 |
+|------|---------------|
+| **Repository（repo）** | 被 Git 管理的项目文件夹 |
+| **Commit** | 某一时刻的“快照” |
+| **Push** | 从电脑上传 commits → GitHub |
+| **Pull** | 从 GitHub 下载改动 → 电脑 |
+
+## 为什么部署需要它？
+
+现在你的代码只存在于你电脑上。电脑坏了就没了。
+
+更重要的是：部署服务需要从某个地方拉取你的代码——GitHub 就是那个地方。
+
+下一课部署时，Vercel 会连接到你的 GitHub repo 并自动拉取代码。
+
+## 什么是 GitHub CLI？
+
+GitHub CLI（`gh`）是一个在终端里操作 GitHub 的工具。
+
+Claude 会用它帮你完成操作，你不用自己记一堆 Git 命令。它通过浏览器进行设备码认证：你会看到一个 code，把它填到 GitHub 网站上授权即可。
+
+## 常见问题排查
+
+### “gh: command not found”
+没有安装 GitHub CLI。
+- **Mac：** 运行 `brew install gh`
+- **其他：** 去 [cli.github.com](https://cli.github.com) 下载
+
+### Authentication failed
+重新运行 `gh auth login`，确保你完成了浏览器授权（输入 code 并点击 “Authorize”）。
+
+### “Repository already exists”
+你的 GitHub 上已经有同名 repo。你可以：
+- 换个名字
+- 或先在 github.com 删除旧 repo
+
+### “Permission denied”
+你的 token 过期了。重新执行 `gh auth login`。
+
+### 在 github.com 找不到 repo
+确认你在浏览器里登录的是正确的 GitHub 账号。
+
+---
+
+## 下一步
+
+**[2.5：上线 →](/zh/vibe-coding/go-live)** - 把应用部署到互联网，拿到可分享的真实 URL
+

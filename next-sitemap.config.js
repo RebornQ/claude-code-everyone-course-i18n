@@ -14,7 +14,7 @@ module.exports = {
   },
   transform: async (config, path) => {
     // Set homepage to highest priority
-    if (path === '/') {
+    if (path === '/' || path === '/zh') {
       return {
         loc: path,
         changefreq: 'weekly',

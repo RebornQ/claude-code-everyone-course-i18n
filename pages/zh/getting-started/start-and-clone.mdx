@@ -1,0 +1,109 @@
+---
+title: '0.2：下载课程并开始'
+description: '下载 CC4E 课程材料，并用 Claude Code 启动你的第一节互动课程。'
+keywords: 'Claude Code 课程,下载 Claude Code 课程,开始 Claude Code 课程'
+---
+
+## 0.2：下载并开始
+
+- **预计用时：** 5 分钟
+- **前置条件：** 已安装 Claude Code（[0.1](/zh/getting-started/installation)）
+
+## 下载课程材料
+
+### 方式 1：一条命令（推荐）
+
+**Mac/Linux：** 把下面整条命令复制并粘贴到终端：
+```bash
+cd ~/Documents && \
+curl -L https://github.com/carlvellotti/claude-code-everyone-course/releases/download/v2.0.0/complete-course.zip -o cc4e-course.zip && \
+unzip cc4e-course.zip && \
+cd cc4e-course && \
+claude "/start-1-1"
+```
+
+**Windows：** 使用方式 2 或 3。
+
+### 方式 2：让 Claude 来做
+
+这能体现 Claude Code 的核心原则：你描述目标，Claude 负责实现。
+
+1. 打开终端，输入 `claude` 启动 Claude Code
+2. 对 Claude 说：“Download the course materials from https://github.com/carlvellotti/claude-code-everyone-course/releases/download/v2.0.0/complete-course.zip and extract it to a folder called cc4e-course in my Documents folder”
+3. 退出并进入目录：`exit`，然后执行 `cd ~/Documents/cc4e-course && claude`
+
+### 方式 3：下载按钮
+
+<a href="https://github.com/carlvellotti/claude-code-everyone-course/releases/download/v2.0.0/complete-course.zip" download style={{ display: 'inline-block', padding: '12px 24px', backgroundColor: '#1DD3B0', color: '#1C1C1C', fontWeight: 'bold', borderRadius: '8px', textDecoration: 'none', marginBottom: '16px' }}>
+  下载课程材料
+</a>
+
+1. 点击上方按钮下载 `complete-course.zip`
+2. 将 zip 解压到 Documents 目录
+3. 按下面说明在课程文件夹中打开 Claude Code
+
+## 在课程文件夹中打开 Claude Code
+
+如果你使用了方式 1，这一步会自动完成。
+
+如果你使用了方式 2 或 3，你需要在课程文件夹里打开终端：
+
+### 在文件管理器里找到它
+
+进入 Documents 目录，找到 `cc4e-course` 文件夹。右键选择 “New Terminal at Folder”（或类似选项）。
+
+大概长这样：
+
+![Opening folder from file explorer](/images/folder-location.png)
+
+然后输入 `claude` 并回车。
+
+### 或者在终端里打开
+
+在终端里输入：
+```bash
+cd ~/Documents/cc4e-course
+claude
+```
+
+这会进入课程文件夹，并让 Claude Code 在该目录中启动。
+
+> **重要：** Claude 只能看到你启动它时所在文件夹内的文件。务必从课程文件夹中启动 Claude Code。
+
+## 开始你的第一节课
+
+当 Claude Code 已经在课程文件夹中运行时：
+
+```
+/start-1-1
+```
+
+Claude 会以互动方式开始教学。按提示跟着做并进行回应即可。
+
+## 常见问题
+
+### “我可以改下载位置吗？”
+可以。只要你记得 `cd` 命令对应的路径即可。
+
+### “如果下载失败怎么办？”
+你可以到 [GitHub Releases](https://github.com/carlvellotti/claude-code-everyone-course/releases/tag/v2.0.0) 手动下载。
+
+### “我能暂停后再回来吗？”
+当然可以！使用 `/resume` 继续上次进度，或重新运行课程对应的 `/start` 命令即可。
+
+---
+
+## 下一步
+
+在 Claude Code 里输入 `/start-1-1` 开始模块 1！
+
+也可以继续阅读参考指南：
+**[1.1：课程介绍 →](/zh/fundamentals/course-intro)**
+
+---
+
+**关于本课程**
+
+作者：[Carl Vellotti](https://www.linkedin.com/in/carlvellotti/)。欢迎在 [X](https://x.com/carlvellotti) 或 [LinkedIn](https://www.linkedin.com/in/carlvellotti/) 给反馈。
+
+加入社区：[fullstackpm.com/cc4e](https://fullstackpm.com/cc4e)。

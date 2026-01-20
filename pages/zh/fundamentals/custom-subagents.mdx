@@ -1,0 +1,110 @@
+---
+title: '1.6：自定义 Sub-agent'
+description: '创建长期可用的 AI 顾问，从不同视角提供反馈；打造你的“咨询委员会”。'
+keywords: 'Claude Code sub-agent,Claude Code personas,自定义 AI agent,AI 顾问'
+---
+
+## 1.6：自定义 Sub-agent
+
+- **预计用时：** 15 分钟
+
+> **互动课程：** 在 Claude Code 里运行 `/start-1-6`
+
+## 额外资源
+
+- [Awesome Claude Code Sub-Agents](https://github.com/VoltAgent/awesome-claude-code-subagents) - 社区模板
+- [Sub-Agent Examples](https://github.com/wshobson/agents) - 真实配置示例
+- [SubAgents.cc](https://www.subagents.cc/) - 模板生成器与浏览器
+- [官方文档：Sub-agents](https://docs.anthropic.com/en/docs/claude-code/sub-agents) - Anthropic 文档
+
+## Agents vs Sub-agents
+
+| 维度 | Agents（1.5） | Sub-agents（1.6） |
+|--------|--------------|------------------|
+| **生命周期** | 临时：启动 → 处理 → 结束 | 长期：随时可用 |
+| **目的** | 产能、批处理 | 观点、反馈、智慧 |
+| **类比** | “10 个实习生处理文件” | “咨询委员会审查战略” |
+
+## “咨询团队”概念
+
+就像给自己搭一个董事会：
+- 每个人有不同视角
+- 需要反馈时随时调用
+- 你可以不断迭代、优化他们
+
+## Sub-agent 怎么工作的？
+
+Sub-agent 定义在 `.claude/agents/` 目录里。
+
+每个文件包含：
+- **YAML frontmatter**（name、description）
+- **System prompt**（人格与视角）
+
+它们就是文本文件——你可以直接打开、编辑。
+
+## Sub-agent 文件结构
+
+```yaml
+---
+name: Agent Name
+description: One-line description
+---
+
+# System prompt
+
+You are... [personality and perspective]
+```
+
+## 使用 Sub-agent
+
+在提示词里通过名字引用：
+
+```
+Have the Skeptic review this proposal
+```
+
+```
+Get feedback from all three sub-agents on this plan
+```
+
+他们会以各自的人格与视角进行回应。
+
+## 创建你自己的 Sub-agent
+
+使用 `/agents` 命令：
+1. 选择 **Project**（仅当前项目）或 **Personal**（所有项目）
+2. Claude 会引导你创建 agent
+
+### 常用 Sub-agent 点子
+
+| Sub-agent | 视角 |
+|-----------|-------------|
+| **怀疑型投资人** | 压测想法与 ROI |
+| **迷茫的新手** | 检查说明是否清晰 |
+| **法务审查** | 识别风险与合规问题 |
+| **忙碌的高管** | 只看结论，不要废话 |
+
+## 什么时候用 Sub-agent？
+
+- 需要从不同视角得到深度反馈
+- 对提案/计划做压力测试
+- 让不同“角色”审查文档
+- 模拟不同利益相关方反应
+- 针对特定 persona 的审阅
+
+## “咨询团队”示例
+
+| 场景 | Sub-agents |
+|----------|------------|
+| **简历审阅** | 招聘官 + 用人经理 + 职业教练 |
+| **商业点子** | 怀疑型投资人 + 目标用户 + 现实主义者 |
+| **演示文稿** | 忙碌高管 + 细节控分析师 + 怀疑者 |
+| **写作** | 编辑 + 目标读者 + 严苛批评者 |
+| **重大决策** | 风险厌恶 + 机会导向 + 务实派 |
+
+---
+
+## 下一步
+
+**[1.7：项目记忆（CLAUDE.md） →](/zh/fundamentals/project-memory)** - 跨会话的持久上下文
+

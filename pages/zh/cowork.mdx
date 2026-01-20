@@ -1,0 +1,771 @@
+---
+title: 'Claude Cowork 完整指南——在 Cowork 里学习'
+description: '通过这份免费互动课程掌握 Claude Cowork。12 节实操课覆盖文件整理、研究综合、Excel/PowerPoint 生成等。'
+keywords: 'Claude Cowork,Claude Cowork 指南,Claude Cowork 教程,如何使用 Claude Cowork,Cowork vs Claude Code,Claude Desktop Cowork,AI 文件整理,AI 研究助手,Claude Cowork 技巧'
+ogImage: 'https://ccforeveryone.com/cowork-complete-guide-banner.jpg'
+schema:
+  "@context": "https://schema.org"
+  "@graph":
+    - "@type": "Article"
+      "@id": "https://ccforeveryone.com/zh/cowork#article"
+      headline: "Claude Cowork 完整指南"
+      description: "通过这份免费互动课程掌握 Claude Cowork。12 节实操课覆盖文件整理、研究综合与文档生成。"
+      image: "https://ccforeveryone.com/cowork-complete-guide-banner.jpg"
+      author:
+        "@type": "Person"
+        name: "Carl Vellotti"
+        url: "https://fullstackpm.com"
+      datePublished: "2026-01-16"
+      dateModified: "2026-01-16"
+      publisher:
+        "@type": "Organization"
+        name: "Claude Code for Everyone"
+        url: "https://ccforeveryone.com"
+    - "@type": "FAQPage"
+      "@id": "https://ccforeveryone.com/zh/cowork#faq"
+      mainEntity:
+        - "@type": "Question"
+          name: "什么是 Claude Cowork？"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Claude Cowork 可以理解为“面向非开发者的 Claude Code”。它是一个能在你电脑上读/改/创建文件的 AI 助手：整理下载文件、把收据做成表格、把散落笔记写成报告等。"
+        - "@type": "Question"
+          name: "Claude Cowork 多少钱？"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Claude Cowork 需要 Claude Max 订阅（$100 或 $200/月）。目前仅在 macOS 上可用，通过 Claude Desktop 应用提供。"
+        - "@type": "Question"
+          name: "Claude Cowork 和 Claude Code 有什么区别？"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Claude Code 面向开发者，通过终端进行编码类任务；Claude Cowork 面向所有人，通过图形界面进行知识工作，例如文件整理、研究综合与文档生成。"
+        - "@type": "Question"
+          name: "Claude Cowork 能生成什么？"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Claude Cowork 可以生成真实的 Excel 表格（含公式）、PowerPoint（含版式与演讲者备注）、Word 文档（含格式）等。输出的是可直接使用的文件，而不是需要复制粘贴的文本。"
+    - "@type": "HowTo"
+      "@id": "https://ccforeveryone.com/zh/cowork#howto"
+      name: "如何开始使用 Claude Cowork"
+      step:
+        - "@type": "HowToStep"
+          name: "下载课程"
+          text: "下载 Cowork Complete Guide 的免费课程材料"
+          url: "https://ccforeveryone.com/cowork-complete-guide.zip"
+        - "@type": "HowToStep"
+          name: "在 Cowork 中打开"
+          text: "在 Claude Desktop 中点击“Cowork”，选择下载好的文件夹"
+        - "@type": "HowToStep"
+          name: "开始学习"
+          text: "告诉 Claude：'Read START-HERE.md and start lesson 1'"
+---
+
+# Claude Cowork 完整指南
+
+**最后更新：** 2026 年 1 月 | **阅读时长：** ~15 分钟 | **互动课程：** 12 课
+
+![Complete Guide to Claude Cowork - Free interactive course covering file organization, research synthesis, document creation, sub-agents, and browser automation](/cowork-complete-guide-banner.jpg)
+
+**Claude Cowork** 是 Anthropic 推出的、能直接处理你电脑中文件的 AI 助手。不同于普通 Claude，Cowork 会产出真实文件——带公式的 Excel、带版式的 PPT、整理好的文件夹等。本指南会从入门设置讲到高级模式。
+
+## 在 Cowork 里学 Cowork！
+
+这不只是一篇文章——而是一门**免费互动课程**：在 Cowork 里由 Claude 带你做真实任务来学习。
+
+### 3 步开始
+
+1. **下载课程** → [下载 Cowork Complete Guide](/cowork-complete-guide.zip)
+2. **在 Cowork 中打开文件夹** → 在 Claude Desktop 点击 “Cowork”，选择该文件夹
+3. **开始学习** → 对 Claude 说：*"Read START-HERE.md and start lesson 1"*
+
+就这么简单。后面 Claude 会接管并带你完成。
+
+### 下面有什么？
+
+本页面是你关于 Cowork 的**完整参考指南**——从基础到高级。每个章节都对应一节实操课（共 12 课，约 2 小时）。
+
+你可以从头读到尾，也可以直接跳到某个章节边读边练。
+
+---
+
+## 目录
+
+**核心概念**
+- [什么是 Cowork？](#what-is-cowork) — *第 1 课*
+- [要求与设置](#requirements--setup)
+- [思维转变](#the-mental-shift)
+- [“Done”框架](#the-done-framework) — *第 3 课*
+- [提示词模板](#prompt-templates)
+
+**工作流**
+- [文件夹体系](#folder-setup) — *第 5 课*
+- [文件操作](#file-operations) — *第 2 与第 4 课*
+- [研究与综合](#research--synthesis) — *第 6 课*
+- [文档生成](#document-creation) — *第 8 课*
+- [Sub-agents](#sub-agents) — *第 7 课*
+- [浏览器自动化](#browser-automation) — *第 9 课*
+- [Skills 系统](#skills-system) — *第 5 与第 11 课*
+- [AI 员工模式](#the-ai-employee-pattern) — *第 10 课*
+
+**参考**
+- [25+ 个可落地用例](#25-use-cases-that-work) — *第 12 课*
+- [Cowork vs Claude Code](#cowork-vs-claude-code)
+- [局限性](#limitations)
+- [安全检查清单](#safety-checklist)
+- [互动学习入口](#learn-interactively)
+
+---
+
+<a id="what-is-cowork"></a>
+
+## 什么是 Cowork？
+
+> **第 1 课：** 对 Claude 说：*"Read START-HERE.md and start lesson 1"*
+
+**Claude Cowork 可以理解为“面向非开发者的 Claude Code”。** 同一个强大的 AI agent，只是换成了不需要终端的图形界面。
+
+你给 Claude 授权一个电脑里的文件夹，Claude 就能在该文件夹里读、改、创建文件：整理下载目录、把收据做成表格、把散落笔记写成报告等等。
+
+**它与普通 Claude 最大的区别：** Cowork 产出真实文件，而不是让你复制粘贴的文本。你要一份报销表，它给你一个带公式的 `.xlsx`；你要一份演示，它给你一个真正的 `.pptx`。
+
+### 一个好记的比喻
+
+| 工具 | 角色 | 主要做什么 |
+|------|------|--------------|
+| **Claude** | 研究员 | 回答问题、做研究 |
+| **Claude Code** | CTO | 写代码、改代码 |
+| **Claude Cowork** | COO | 经营你的工作：文件、文档、研究 |
+
+Anthropic 用 Claude Code 大约 10 天做出了 Cowork。
+
+---
+
+<a id="requirements--setup"></a>
+
+## 要求与设置
+
+| 要求 | 说明 |
+|-------------|---------|
+| **平台** | 仅 macOS（Windows 即将支持） |
+| **应用** | Claude Desktop |
+| **订阅** | Claude Max（$100 或 $200/月） |
+| **状态** | 研究预览版 |
+
+### 开始使用
+
+1. 下载 [Claude Desktop](https://claude.ai/download)
+2. 侧边栏点击 **“Cowork”**
+3. 授权一个文件夹
+4. 开始把任务交出去
+
+**重要：** 一开始请用专门的工作文件夹，不要第一天就把整个 Documents 目录交给 Claude。
+
+---
+
+<a id="the-mental-shift"></a>
+
+## 思维转变
+
+> 使用 Cowork 最大的误区：把它当成“能访问文件夹的 ChatGPT”。
+
+**错误方式：**
+- 问一个问题 → 得到答案 → 复制粘贴到文档
+
+**正确方式：**
+- 描述一个结果 → 先去做别的事 → 回来看成品文件
+
+用 Anthropic 的话说：*"它更像给同事留言，而不是来回对话。"*
+
+如果你一直把它当聊天界面，你只能获得 10% 的价值。
+
+---
+
+<a id="the-done-framework"></a>
+
+## “Done”框架
+
+> **第 3 课：** 对 Claude 说：*"Read START-HERE.md and start lesson 3"*
+
+输出质量几乎完全取决于输入质量。
+
+在你把任何工作交给 Cowork 之前，先回答 3 个问题：
+
+### 1）“完成”的样子是什么？
+
+如果你想象不出成品，Claude 也想象不出。
+
+| ❌ 模糊 | ✅ 具体 |
+|----------|-------------|
+| “做一份报销表” | “做一个 Excel：列包含日期、商户、金额、类别；按日期排序；底部有合计” |
+
+### 2）Claude 需要什么上下文？
+
+- 你的命名规范？
+- 你喜欢的文件夹结构？
+- 工作文档和个人文档怎么区分？
+
+你不说，Claude 就会自己假设。有时对，有时错。
+
+### 3）哪些约束是关键？
+
+- “不要删除文件，只做移动。”
+- “保留原文件名，但加上日期前缀。”
+- “只处理最近 90 天的文件。”
+
+Claude 不能读心：你没说的限制，它就不知道。
+
+**最安全的默认：** 除非你明确要删，否则永远说 “don’t delete anything”。
+
+---
+
+<a id="prompt-templates"></a>
+
+## 提示词模板
+
+复制即可用，效果稳定。
+
+### 文件整理
+
+```
+Organize all files in this folder. Group them into subfolders by
+[project/client/file type]. Rename each file using the format
+YYYY-MM-DD-descriptive-name. Do not delete anything. Create a
+summary document listing what you moved and where.
+```
+
+### 研究综合
+
+```
+Read all the documents in this folder. Create a single report
+that synthesizes the key findings. Include direct quotes where
+relevant, with the source file name. Flag any contradictions
+between sources. End with a list of questions that remain
+unanswered.
+```
+
+### 文档生成
+
+```
+Create a [PowerPoint/Word doc/Excel spreadsheet] based on the
+files in this folder. Use [specific structure or template].
+The audience is [who]. The goal is [what you want them to
+understand or do after reading].
+```
+
+### 数据抽取
+
+```
+I have [X] screenshots of [receipts/invoices/forms] in this
+folder. Extract the data into an Excel spreadsheet with columns
+for [list columns]. Sort by [column]. Add a total row at the
+bottom. Flag any images that were unclear or couldn't be processed.
+```
+
+---
+
+<a id="folder-setup"></a>
+
+## 文件夹体系
+
+> **第 5 课：** 对 Claude 说：*"Read START-HERE.md and start lesson 5"*
+
+不要随便给 Claude 一个“杂乱目录”。先搭一个体系。
+
+### 推荐结构
+
+```
+Claude-Work/
+├── inbox/          ← 把要处理的文件丢这里
+├── processed/      ← Claude 把处理完的文件移动到这里
+├── outputs/        ← Claude 新生成的文件放这里
+└── reference/      ← Claude 只读，不要修改
+```
+
+### 告诉 Claude 规则
+
+把下面这段放进你的第一条提示词里：
+
+```
+The inbox folder contains files to process. Move them to
+processed when done. Create any new files in outputs. The
+reference folder is read-only—don't modify those files.
+```
+
+这样就形成可复用的工作流：把文件放进 inbox → 让 Claude 处理 → outputs 看结果。
+
+---
+
+<a id="file-operations"></a>
+
+## 文件操作
+
+> **第 2 与第 4 课：** 对 Claude 说：*"Read START-HERE.md and start lesson 2"*
+
+这是 Cowork 的超能力：**理解内容的文件整理**。
+
+### 有什么不同？
+
+传统整理只能看文件名。`IMG_4521.png` 可能被丢进 “Images”。
+
+Cowork 会读**内容**。同样的 `IMG_4521.png`，Claude 能看出它其实是一张咖啡供应商收据，于是它会被放进 “Receipts/Coffee-Suppliers”。
+
+### 规模
+
+有人用它几分钟整理 300+ 文件。多年混乱的下载目录——通过真正阅读每个文件内容来分类归档。
+
+### 通用模式
+
+1. 把 Claude 指向一个混乱文件夹
+2. 用 “Done” 框架写清楚委托
+3. 要求生成变更日志，方便你审核
+4. 让它跑完
+
+### 示例委托
+
+```
+Organize all files in this folder into logical categories based
+on their contents. Rename files with YYYY-MM-DD prefix where
+dates are identifiable. Create subfolders that make sense.
+Document every decision in ORGANIZATION-LOG.md showing
+before/after for each file. Don't delete anything.
+```
+
+---
+
+<a id="research--synthesis"></a>
+
+## 研究与综合
+
+> **第 6 课：** 对 Claude 说：*"Read START-HERE.md and start lesson 6"*
+
+这是 Cowork 节省大量时间的地方。
+
+### 痛点
+
+你有 20 份文档——客户访谈、问卷结果、客服工单——你需要从中找模式与洞察。
+
+人工做法：逐份阅读、做笔记、交叉对照、写结论。几个小时起步。
+
+### Cowork 的做法
+
+Claude 可以同时读完所有文档，并跨文档做综合：不仅逐份总结，更能把线索串起来。
+
+客户 A 说了某件事，客户 B 说了相关内容，客户 C 又提出相反观点——Claude 会抓住这些，并给出引用与来源。
+
+### 可以这样提需求
+
+```
+Read all documents in this folder. Create a synthesis report with:
+- Executive summary
+- Key themes (with supporting quotes and source files cited)
+- Contradictions between sources
+- Patterns by [segment/category/source type]
+- Specific [requests/recommendations/insights] mentioned
+- Questions that remain unanswered
+```
+
+### 适用场景
+
+- 用户反馈综合
+- 竞品研究
+- 文献综述
+- 多次会议纪要综合
+- 访谈转录分析
+- 任何多来源分析
+
+---
+
+<a id="document-creation"></a>
+
+## 文档生成
+
+> **第 8 课：** 对 Claude 说：*"Read START-HERE.md and start lesson 8"*
+
+Cowork 生成的是**真实文件**，不是让你复制粘贴的文本。
+
+### 各种格式能做什么？
+
+| 格式 | 能力 |
+|--------|--------------|
+| **Excel（.xlsx）** | 可用公式（SUM、VLOOKUP、IF）、条件格式、多工作表、图表、数据校验 |
+| **PowerPoint（.pptx）** | 真实幻灯片（版式 + 演讲者备注 + 逻辑结构），不只是堆 bullet |
+| **Word（.docx）** | 标题层级、目录、格式化表格等 |
+| **PDF** | 表单填写、文档组装 |
+
+### 示例：收据 → 报销表
+
+```
+I have receipt photos in this folder. Create expense-tracker.xlsx with:
+- Data sheet: Date, Vendor, Category, Amount, Payment Method
+- Formulas for totals by category
+- Conditional formatting for expenses over $100
+- Summary sheet with a chart
+- Flagged items sheet for unclear receipts
+```
+
+你会得到一个真实 Excel 文件：可打开、可编辑、可分享。
+
+---
+
+<a id="sub-agents"></a>
+
+## Sub-agents
+
+> **第 7 课：** 对 Claude 说：*"Read START-HERE.md and start lesson 7"*
+
+当任务可以拆成彼此独立的部分时，Claude 会并行启动多个“工人”一起做，然后汇总结果。
+
+### 工作方式
+
+原本串行处理 10 个文件要 50 分钟；并行处理可以 5 分钟完成，然后再做综合。
+
+### 什么时候要明确要求？
+
+| 模式 | 示例提示词 |
+|---------|----------------|
+| **供应商分析** | “Spin up sub-agents to research each of these four vendors independently. Then synthesize into a comparison.” |
+| **多视角分析** | “Analyze this decision using three sub-agents: financial impact, customer experience, operational risk. Synthesize findings.” |
+| **大量文档集** | “Use sub-agents to process these 50 transcripts in parallel. Extract themes, then synthesize into one report.” |
+
+### 每个 sub-agent 拥有/不拥有的能力
+
+| ✅ 有 | ❌ 没有 |
+|--------|-----------------|
+| 完整文件系统访问 | 与其他 agents 直接沟通 |
+| Claude 的全部能力 | 处理过程中的共享状态 |
+| 独立上下文 | 在汇总前知道其他 agents 的工作成果 |
+
+---
+
+<a id="browser-automation"></a>
+
+## 浏览器自动化
+
+> **第 9 课：** 对 Claude 说：*"Read START-HERE.md and start lesson 9"*
+
+通过 **Claude in Chrome** 扩展，Cowork 可以控制你的浏览器。
+
+### 适合的场景
+
+| 场景 | 示例 |
+|----------|---------|
+| **竞品研究** | 访问价格页，抽取套餐与功能，生成对比表 |
+| **数据抽取** | 从你已登录的仪表盘中抓取数据 |
+| **公共数据收集** | 查 SEC 文件、提取财务数据、做对比表 |
+
+### 实话实说
+
+浏览器自动化**时灵时不灵**：页面加载异常、元素不响应、网站阻止自动化都很常见。
+
+有时很好用，有时会卡住。卡住了就让 Claude 重试，或跳过那一段。
+
+### 安全提醒
+
+浏览器访问会引入 prompt injection 风险：恶意网页可能试图操控 Claude。
+
+**规则：**
+- 只用可信网站
+- 不要随意把 Claude 指向陌生 URL
+- Claude 在提交表单或进行不可逆操作前会请求确认
+
+---
+
+<a id="skills-system"></a>
+
+## Skills 系统
+
+> **第 5 与第 11 课：** 对 Claude 说：*"Read START-HERE.md and start lesson 5"*
+
+Skills 是可复用的“指令集”，Claude 会按它们的方式做事。
+
+### Skills 的价值
+
+与其每次会话都重复解释偏好，不如写一次 skill，然后永久复用。
+
+### 创建自定义 Skill
+
+在你的工作文件夹里放一个 markdown 文件：
+
+```markdown
+# My Report Style Guide
+
+## Format
+- Always use bullet points, not paragraphs
+- Include executive summary at top
+- End with "Next Steps" section
+
+## Voice
+- Professional but not stiff
+- No jargon without explanation
+- Active voice
+
+## Structure for Status Reports
+1. Summary (3 bullets max)
+2. Completed This Week
+3. In Progress
+4. Blockers
+5. Next Week
+```
+
+然后对 Claude 说：*"Read style-guide.md and follow it for all documents you create."*
+
+### 内置 Skills
+
+Cowork 自带用于 Excel、PowerPoint、Word 与 PDF 生成的 skills。当你请求对应文件类型时，它们会自动加载。
+
+---
+
+<a id="the-ai-employee-pattern"></a>
+
+## AI 员工模式
+
+> **第 10 课：** 对 Claude 说：*"Read START-HERE.md and start lesson 10"*
+
+这是解锁 Cowork 全部价值的关键心态。
+
+### 旧方式（聊天机器人思维）
+
+```
+Give task → Wait → Get result → Give next task → Wait → Get result
+```
+
+### 新方式（AI 员工思维）
+
+```
+Brain dump all tasks → Hand them off → Do something else → Come back to finished work
+```
+
+### 批处理策略
+
+与其开 3 次会话：
+
+```
+"Organize my receipts" → wait → done
+"Create expense report" → wait → done
+"Summarize for my accountant" → wait → done
+```
+
+不如一次性说清楚（一个会话，一个提示词）：
+
+```
+I have receipt screenshots in /receipts. First, organize them
+by month into subfolders. Then create an expense spreadsheet
+with all the data. Finally, create a one-page summary for my
+accountant showing totals by category. Put all outputs in /outputs.
+```
+
+一条提示词完成 3 件事：更省配额，也更容易得到一致结果。
+
+### 日常工作流
+
+1. **早上：** 把今天要做的事一次性写出来
+2. **交出去：** 让 Cowork 去做
+3. **你去忙：** 深度工作/会议/别的事情
+4. **回来检查：** 审阅输出并给反馈
+5. **继续迭代：** “改这里、加那里、这部分重做”
+
+---
+
+<a id="25-use-cases-that-work"></a>
+
+## 25+ 个可落地用例
+
+> **第 12 课：** 对 Claude 说：*"Read START-HERE.md and start lesson 12"*
+
+### 财务与行政
+
+- 把 50 张收据照片变成按类别汇总的报销表
+- 从一堆合同中抽取关键日期、金额与义务条款
+- 从分散的 PDF 发票中做发票摘要
+- 从银行流水导出构建预算追踪表
+- 从原始交易数据生成月度支出报告
+
+### 研究与分析
+
+- 把 30 份客户访谈转录综合成主题报告
+- 对比 4 家供应商的价格、功能与口碑
+- 分析竞品营销材料，提炼定位洞察
+- 从批注 PDF 中抽取并整理高亮要点
+- 从研究论文生成文献综述
+
+### 内容与文档
+
+- 把会议纪要整理成格式化的幻灯片
+- 从散落的规划文档生成项目 brief
+- 从客服聊天记录生成 FAQ 文档
+- 从一批“通过审核的内容”提炼出风格指南
+- 把长报告浓缩成高管摘要
+
+### 文件管理
+
+- 按项目与日期整理混乱的 Downloads 文件夹
+- 在子目录中查重并合并重复文件
+- 批量重命名，统一命名规范
+- 按日期整理照片，生成相册文件夹
+- 归档旧文件，同时生成一份索引记录移动了什么
+
+### 数据处理
+
+- 从表单/表格截图抽取数据
+- 合并多个 CSV 到一个整理好的 Excel
+- 清洗并标准化脏数据导出
+- 批量进行文件格式转换
+- 从大规模文档集中抽取指定字段
+
+### 一些意外用法
+
+- 旅行研究与行程规划
+- 取消不再使用的订阅（从账单里找到、再研究取消方式）
+- 从损坏硬盘中恢复并整理婚礼照片
+- 通过照片记录植物生长并生成时间线
+- 从零生成整套幻灯片
+- 清理邮箱积压（导出后再处理）
+
+这个工具是通用的：只要能用文件与网页访问完成的事，都值得试试。
+
+---
+
+<a id="cowork-vs-claude-code"></a>
+
+## Cowork vs Claude Code
+
+| 维度 | Claude Code | Cowork |
+|--------|-------------|--------|
+| **界面** | 终端 | 图形界面 |
+| **主要用途** | 编码/开发 | 其他所有知识工作 |
+| **用户** | 开发者 | 所有人 |
+| **文件访问** | 当前工作目录 | 选择的文件夹 |
+| **学习成本** | 更高 | 更低 |
+| **自定义** | CLAUDE.md、slash commands | Skills |
+| **隔离/沙盒** | 更少隔离 | Linux VM |
+
+**适合用 Claude Code：** 写代码、在代码库里工作、需要终端能力。
+
+**适合用 Cowork：** 知识工作、文件整理、文档生成、研究综合。
+
+---
+
+<a id="limitations"></a>
+
+## 局限性
+
+Cowork 仍是研究预览版，目前有这些限制：
+
+| 限制 | 说明 |
+|------------|---------|
+| **仅 Mac** | Windows 即将支持 |
+| **一次一个文件夹** | 不能同时访问多个位置 |
+| **没有 Projects** | 不像 Claude Chat 那样保存项目上下文 |
+| **无跨会话记忆** | 每次会话重新开始 |
+| **不支持会话共享** | 不能与他人共享 |
+| **不支持多设备同步** | 仅本机 |
+| **连接器不稳定** | 文件系统 + Chrome + 网页搜索最稳；Gmail、日历等连接器时好时坏 |
+
+### 不太好用的场景
+
+- 通过浏览器抓 YouTube 转录
+- 复杂、多步骤的浏览器工作流
+- 任何需要高度可靠外部连接器的任务
+
+应用里有反馈入口。Anthropic 会持续根据用户反馈迭代。
+
+---
+
+<a id="safety-checklist"></a>
+
+## 安全检查清单
+
+### 第一次使用前
+
+- [ ] 创建专门的工作文件夹（不要用 Documents 或 Desktop）
+- [ ] 把要交给 Claude 的重要文件先备份
+- [ ] 明确 Claude **不允许**删除什么
+
+### 每次会话
+
+- [ ] 在提示词里写清楚约束
+- [ ] 避免把敏感文件放进工作文件夹（凭证、财务隐私、个人记录）
+- [ ] 如果启用浏览器访问，只访问可信网站
+
+### 如果感觉不对劲
+
+- [ ] 立刻停止任务
+- [ ] 检查哪些文件被修改
+- [ ] 排查是否出现异常行为
+
+### 黄金法则
+
+**除非你明确要删，否则永远说 “don’t delete anything”。** Claude 通常只会在被指示时删除，但你必须把话说死。
+
+---
+
+## 快速参考
+
+| 项目 | 说明 |
+|------|---------|
+| **访问条件** | Claude Max（$100-200/月），macOS Desktop 应用 |
+| **开始方式** | 下载应用 → 点击 “Cowork” → 授权文件夹 |
+| **最适合** | 文件整理、研究综合、文档生成、多步骤任务 |
+| **不适合** | 快速问答、简单分析、不需要文件访问的事情 |
+| **关键能力** | Sub-agents、Skills（xlsx/pptx/docx）、Chrome、网页搜索 |
+| **安全要点** | 从小范围开始、备份文件、明确约束 |
+
+---
+
+## TL;DR
+
+1. **Cowork 是“同事”，不是聊天机器人。** 交代结果，先去忙别的，再回来收成品文件。
+
+2. **写更好的提示词。** 定义 “done” 的样子，补上下文，写明约束。
+
+3. **先用专门文件夹。** 刚开始把访问范围控制小一点，并做好备份。
+
+4. **复杂任务用 sub-agents。** Claude 会在合适时自动并行。
+
+5. **Skills 产出真实文件。** 有公式的 Excel、真正的 PPT、带格式的文档。
+
+6. **把相关任务批处理**，更省配额也更稳。
+
+7. **安全由你负责。** 备份、避免敏感数据、关注 Claude 的行为。
+
+**这是早期工具。现在开始学，会很值。**
+
+---
+
+<a id="learn-interactively"></a>
+
+## 互动学习入口
+
+本指南配套了一门**互动课程**：在 Cowork 里由 Claude 教你。上面每个章节都对应一节实操课。
+
+### 如何开始
+
+1. **下载课程材料** → [下载 Cowork Complete Guide](/cowork-complete-guide.zip)
+2. **在 Cowork 中打开文件夹** → 在 Claude Desktop 点击 “Cowork”，选择下载好的文件夹
+3. **开始第 1 课** → 对 Claude 说：*"Read START-HERE.md and start lesson 1"*
+
+### 跳到任意一课
+
+| 课程 | 主题 | 指令 |
+|--------|-------|---------|
+| 1 | First Contact | *"Read START-HERE.md and start lesson 1"* |
+| 2 | Your First Delegation | *"Read START-HERE.md and start lesson 2"* |
+| 3 | The "Done" Framework | *"Read START-HERE.md and start lesson 3"* |
+| 4 | File Organization | *"Read START-HERE.md and start lesson 4"* |
+| 5 | Inbox Pattern & Skills | *"Read START-HERE.md and start lesson 5"* |
+| 6 | Research Synthesis | *"Read START-HERE.md and start lesson 6"* |
+| 7 | Sub-Agents & Scale | *"Read START-HERE.md and start lesson 7"* |
+| 8 | Document Creation | *"Read START-HERE.md and start lesson 8"* |
+| 9 | Browser Automation | *"Read START-HERE.md and start lesson 9"* |
+| 10 | AI Employee Pattern | *"Read START-HERE.md and start lesson 10"* |
+| 11 | Build Your Skill Library | *"Read START-HERE.md and start lesson 11"* |
+| 12 | What's Next | *"Read START-HERE.md and start lesson 12"* |
+
+---
+
+## 保持更新
+
+**通讯：** 在 [fullstackpm.com/cc4e](https://fullstackpm.com/cc4e) 订阅，获取新指南与课程更新
+
+**反馈：** 有问题或建议？欢迎在 [X](https://x.com/carlvellotti) 或 [LinkedIn](https://www.linkedin.com/in/carlvellotti) 联系我
+

@@ -1,0 +1,127 @@
+---
+title: '1.5：Agents（并行处理）'
+description: '用并行 Claude 实例同时处理 10 个文件：学习 agent 编排模式。'
+keywords: 'Claude Code agents,并行处理,批量处理,AI agents'
+---
+
+## 1.5：Agents
+
+- **预计用时：** 20 分钟
+
+> **互动课程：** 在 Claude Code 里运行 `/start-1-5`
+
+## 什么是 Agents？
+
+**多个独立的 Claude 实例并行运行。**
+
+你可以把它理解成“复制自己”，同时处理多个任务。每个 agent 各做各的，最后再把结果汇总。
+
+## 串行 vs 并行
+
+| 方式 | 10 个任务耗时 |
+|----------|-------------------|
+| **串行**（没有 agents） | 任务 1 → 任务 2 → … → 任务 10 = **50 分钟** |
+| **并行**（使用 agents） | 10 个同时做 = **5 分钟** |
+
+## 什么时候适合用 Agents？
+
+**适合：**
+- 大量相似文件处理（10 份会议纪要、20 份访谈）
+- 并行研究（5 个竞品、3 个市场）
+- 多来源分析（访谈 + 问卷 + 工单）
+- 批量文档生成（从一份 PRD 生成 20 条 user story）
+- 时间敏感（需要几小时内出结果）
+
+**不适合：**
+- 单个任务（直接用普通 Claude 即可）
+- 强依赖顺序（后一个必须基于前一个结果）
+- 很快就能完成的事
+- 必须累积上下文的任务（需要连续推理）
+
+## 如何提示 Claude 使用 Agents
+
+| 风格 | 示例 |
+|-------|---------|
+| **明确指令** | “Create 10 agents to process these files” |
+| **隐含表达** | “Work in parallel to analyze these competitors” |
+| **分工角色** | “Launch 3 agents: one for interviews, one for surveys, one for tickets” |
+| **让 Claude 决定** | “Process all files in /meetings/” |
+
+## Agent 编排模式
+
+### 模式 1：扇出（Fan Out）
+同一任务分配给多个文件。
+
+```
+Process all 15 files with 15 agents, extract action items, combine into single list
+```
+
+### 模式 2：角色分工（Specialized Roles）
+不同来源做不同分析。
+
+```
+Agent 1 analyzes interviews, Agent 2 processes survey data, Agent 3 reviews tickets
+```
+
+### 模式 3：并行研究（Parallel Research）
+多个对象独立研究。
+
+```
+Research these 5 competitors in parallel, create comparison matrix
+```
+
+### 模式 4：批量生成（Batch Generation）
+生成大量结构相似的文档。
+
+```
+Generate 20 user stories from this PRD using agents
+```
+
+### 模式 5：质量校验流水线（Validation Pipeline）
+对多份文档做统一审查。
+
+```
+Review all documents in /docs/ against the quality checklist
+```
+
+## 汇总步骤（Synthesis）
+
+**提示词里务必包含“汇总”指令：**
+
+```
+After all agents complete, synthesize results into @summary.md
+```
+
+agent 的原始输出需要合并与归纳——模式与结论通常在汇总阶段出现。
+
+## 能力与限制
+
+| 每个 agent 有 | 每个 agent 没有 |
+|----------------|--------------------------|
+| 完整文件系统访问 | 和其他 agents 直接沟通 |
+| Claude 的完整能力 | 共享状态 |
+| 独立上下文 | 在汇总前知道其他 agents 的结果 |
+
+## 排查问题
+
+| 问题 | 解决方法 |
+|---------|----------|
+| 没有并行执行 | 明确说 “work simultaneously / in parallel” |
+| 结果风格不一致 | 提供清晰的输出模板 |
+| agent 太多 | 指定确切数量 |
+| 没有汇总 | 结尾加上 “synthesize into …” |
+
+## 真实场景
+
+- **JD/岗位分析** - 一次分析 10 个职位
+- **供应商评估** - 并行研究 5 家供应商
+- **文章摘要** - 批量处理 20 篇收藏文章
+- **租房比对** - 同时分析 8 套房源
+- **旅行规划** - 航班/酒店/活动/餐厅并行搞定
+
+---
+
+## 下一步
+
+**[1.6：自定义 Sub-agent →](/zh/fundamentals/custom-subagents)** - 创建长期可用的专业顾问
+

@@ -1,0 +1,85 @@
+---
+title: '1.2：文件探索与可视化工作区'
+description: '把 Cursor（或 VS Code）和 Claude Code 放在一起使用：双窗格工作流，让你在 Claude 工作时也能看见文件。'
+keywords: 'Claude Code Cursor,Claude Code 可视化工作区,Claude Code 配置,双窗格工作流'
+---
+
+## 1.2：文件探索与可视化工作区
+
+- **预计用时：** 15 分钟
+
+> **互动课程：** 在 Claude Code 里运行 `/start-1-2`
+
+## 双窗格工作流
+
+**问题：** 终端很适合和 Claude 对话，但你看不到文件。
+
+**解决方案：** 在 Claude Code 旁边配一个编辑器。
+
+| 窗格 | 用途 |
+|------|------|
+| **左侧** | 文件浏览器（看见一切） |
+| **底部** | Claude Code 终端（操作一切） |
+
+## 配置 Cursor（或 VS Code）
+
+[Cursor](https://cursor.com) 是一个免费编辑器，非常适合与 Claude Code 搭配：
+
+- Claude 工作时，你可以在界面里直观看到文件变化
+- Cursor 自带 AI 功能（你不一定需要它——Claude Code 更强）
+- 如果你更习惯 VS Code，也完全可以用 VS Code
+
+### 安装
+
+1. 在 [cursor.com](https://cursor.com) 下载
+2. 运行安装程序
+3. 打开 Cursor
+
+## 在编辑器里运行 Claude Code
+
+1. **在 Cursor 打开终端：** `Ctrl+``（反引号键，Tab 上方）
+   - 或者：View → Terminal
+2. **进入你的文件夹：** `cd ~/Documents/your-folder`
+3. **输入 `claude` 并回车**
+
+此时：左侧可见文件，底部终端里是 Claude。
+
+## 探索陌生的文件结构
+
+Claude Code 运行后，你可以这样问：
+
+```
+Show me the file structure
+```
+
+```
+Summarize the contents of the docs/ folder
+```
+
+```
+What files are in this project?
+```
+
+Claude 可以帮你快速梳理任何文件夹的结构。
+
+## Markdown 文件
+
+- `.md` 扩展名 = Markdown 格式
+- 文档领域的常见标准 - 大模型也很喜欢
+- **预览模式：** `Cmd/Ctrl+Shift+V` 查看格式化效果
+- **源码模式：** 查看标记文本
+
+## 真实场景
+
+- **接手同事的项目** - Claude 快速把结构讲清楚
+- **客户发来一堆乱七八糟的素材** - 几分钟搞定整理与定位
+- **Downloads 文件夹混乱** - Claude 帮你清理归档
+- **刚入职** - 快速理解团队共享盘结构
+- **任何陌生文件结构**
+
+---
+
+## 下一步
+
+**[1.3：文件操作 →](/zh/fundamentals/working-with-files)** - 掌握 `@` 引用与文件操作模式
+

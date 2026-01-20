@@ -1,0 +1,129 @@
+---
+title: 'Ross Mike 工作流 | 免费互动 Claude Code 小课'
+description: '从 Greg Isenberg 对 Ross Mike 的访谈中学习 “Ask User Question” 技巧、50% 上下文规则等，并在 Claude Code 中下载运行。'
+keywords: 'ross mike, greg isenberg, claude code 规划, ask user question, slop in slop out, ralph loops, 上下文窗口, vibe coding'
+ogImage: 'https://ccforeveryone.com/images/og-ross-mike.png'
+---
+
+# 迷你课程
+
+---
+
+## Ross Mike 工作流
+
+### 这是什么？
+
+这是一份互动版课程，内容来自 Greg Isenberg 对 Ross Mike 的访谈：Ross 会拆解他如何用 Claude Code 稳定产出高质量结果。
+
+**来源：** [Claude Code Clearly Explained (and how to use it)](https://www.youtube.com/watch?v=zxMjOqM7DFs)
+
+### 你会学到什么？
+
+- **“Ask User Question” 技巧** - 用一个提示词把模糊想法变成清晰、可执行的详细计划
+- **为什么计划比工具更重要** - 别再怪 MCP，把输入写好
+- **四条实用规则** - 上下文管理、先手动再自动、以及“有品味地”构建
+
+### 观看原视频
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/zxMjOqM7DFs"
+  title="Claude Code Clearly Explained"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+></iframe>
+
+### 开始
+
+1. **下载课程文件夹：** [DOWNLOAD](https://github.com/carlvellotti/claude-code-everyone-course/releases/download/ross-mike-workflows-v1.0/ross-mike-workflows.zip)
+2. **在该文件夹中打开终端**
+3. **运行 `claude`，然后输入 `/start-lesson`**
+
+> **不熟悉终端？** 先看 [快速开始：安装](/zh/getting-started/installation)。
+
+---
+
+### 覆盖内容
+
+#### 1. “Slop In, Slop Out” 问题
+
+Ross Mike 的核心理念：**输入质量决定输出质量。** 如果 Claude 的结果平庸，通常不是模型的问题——而是你的计划。
+
+很多人只给 Claude 一个很含糊的提示，比如 “Build me a TikTok UGC app”，然后困惑为什么输出很通用。模型不得不替你猜上百个决策：做哪些功能？什么 UI 风格？用什么技术栈？每一次猜测都会叠加，最终变成你并不想要的东西。
+
+#### 2. 坏计划 vs 好计划
+
+这节课会做一个左右对比：
+
+**坏计划：** 一句含糊的话，没有细节。
+
+**好计划：** 拆成具体功能点，每个功能都有验收标准和测试；UI 决策明确；技术取舍提前说清楚。
+
+同一个想法，细节密度完全不同。好计划之所以能产出好结果，是因为 Claude 不需要再猜了。
+
+#### 3. Ask User Question 技巧
+
+这是视频里的关键技巧。与其你写一份计划然后祈祷它足够细，不如直接用这段提示词：
+
+> "Read this plan file. Interview me in detail using the ask user question tool about literally anything - technical implementation, UI/UX concerns, and trade-offs."
+
+这会强制 Claude 在动手之前先“采访”你——从技术实现到 UI/UX，再到各种权衡取舍。比如：
+- "What's your ideal workflow - step-by-step wizard or open dashboard?"
+- "How should we handle API costs?"
+- "What UI style - minimal, dashboard-heavy, or chat-first?"
+
+回答这些问题的人是你，你就掌控了决策；Claude 就不会再猜。最终你会得到一份真正能产出你想要结果的详细 PRD。
+
+#### 4. 别沉迷 MCP 和工具
+
+当输出很糟时，你可能会想：“我需要更多工具——MCP server、自定义 skills、插件。”
+
+Ross Mike 的回应是：**“我几乎可以保证，绝大多数时候这不是你做不出产品的原因。多数情况下？是你的计划太烂。”**
+
+解决方案几乎从来不是“加更多工具”，而是“写更好的计划”。
+
+#### 5. 50% 上下文规则
+
+对话越长，Claude 往往会开始“退化”——忘记指令、重复自己、开始犯以前不会犯的错误。
+
+Ross Mike 的规则：**上下文使用率不要超过 50%。** 当你到 40–50% 时，就开一个新会话：把目前进度总结一下，粘贴到新会话里继续。
+
+把它想象成老师连续讲几个小时——你也会开始记不住。
+
+#### 6. 先赢得自动化的资格（Ralph Loops）
+
+你可能听过 “Ralph loops”——一套自动化工作流，让你睡觉时也能把整个 app 搭出来。
+
+Ross Mike 的建议：**先别用。**
+
+他的类比：想象你还不会开车，就去买一辆特斯拉靠自动驾驶。理论上很酷，但也许先学会开车。
+
+当你手动构建——做一个功能、测一下、再做下一个——你会培养出他称为 “vibe QA testing” 的直觉：你熟悉节奏，能感觉到哪里不对。如果你在没有这种直觉前就自动化，出问题时你甚至不知道从哪里修。
+
+他的规则：先手动把东西部署上线一次，然后你才算“赢得了自动化的资格”。
+
+#### 7. Audacity（大胆）胜过 Syntax（语法）
+
+有很多“我复刻了一个 40 亿美元应用”的教程。但 Ross 和 Greg 认为，这已经不是制胜之道。
+
+**“写代码正在变得容易。但软件工程——让东西好用、做出优秀 UX、拥有品味——这才难。”**
+
+如果所有人都能复刻同样的功能，那软件的差异来自哪里？来自 **Audacity**。
+
+Ross 举了个例子：一个根据你当下情绪生成跑步路线的 app。不同情绪对应的动画、配色——这些需要思考与审美，这才是让作品脱颖而出的地方。
+
+别只是在堆功能。做一个有品味的产品。
+
+---
+
+### 完成后
+
+你将获得：
+- 可复用到任何项目的 Ask User Question 提示词
+- 你自己写出来的详细 PRD
+- 五条高效使用 Claude Code 的规则
+
+**下载课程文件夹：** [DOWNLOAD](https://github.com/carlvellotti/claude-code-everyone-course/releases/download/ross-mike-workflows-v1.0/ross-mike-workflows.zip)
+

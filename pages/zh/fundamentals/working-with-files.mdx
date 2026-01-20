@@ -1,0 +1,101 @@
+---
+title: '1.3：文件操作'
+description: '掌握 `@` 文件引用。学习 5 种模式：提取、综合、套模板、图片分析、网页研究。'
+keywords: 'Claude Code 文件,Claude Code @,Claude Code 文件操作,Claude Code 模式'
+---
+
+## 1.3：文件操作
+
+- **预计用时：** 25 分钟
+
+> **互动课程：** 在 Claude Code 里运行 `/start-1-3`
+
+## `@` 符号
+
+`@` 用来把文件/文件夹“交给 Claude”：
+
+| 写法 | 作用 |
+|--------|-------------|
+| `@filename.md` | 引用一个具体文件 |
+| `@folder/` | 引用整个文件夹 |
+| `@folder/file.md` | 引用子文件夹中的文件 |
+
+Claude 会读取你引用的内容，并把它用于回复与生成结果。
+
+## 模式 1：单文件 → 提取（Extract）
+
+把 Claude 指向一个“很乱”的文件，提炼出结构化信息。
+
+**示例：**
+```
+Read @meeting-notes.md and extract action items into a new file
+```
+
+**使用场景：** 会议纪要、交接文档、研究论文、访谈转录
+
+## 模式 2：文件夹 → 综合（Synthesize）
+
+把 Claude 指向一个文件夹，在多份文件中找共同模式与主题。
+
+**示例：**
+```
+Look at @feedback/ and synthesize themes across all files
+```
+
+**使用场景：** 用户反馈、工单、问卷、研究笔记
+
+## 模式 3：套模板（Apply Template）
+
+同时引用一个模板文件和内容文件。
+
+**示例：**
+```
+Create a report from @research.md following format in @templates/report.md
+```
+
+**使用场景：** 周报、提案、状态更新、任何重复出现的文档格式
+
+## 模式 4：图片 → 分析（Image → Analyze）
+
+把图片直接粘贴进 Claude Code。
+
+> **重要：** 请用 `Ctrl+V`（Mac 不是 `Cmd+V`！）
+
+**使用场景：** UI 截图、竞品设计、图表、照片、线框图、海报
+
+## 模式 5：网页 → 研究（Web → Research）
+
+让 Claude 去搜索网页。
+
+**示例：**
+```
+Search for best practices in loyalty program design
+```
+
+Claude 会查找、阅读并综合信息——不需要你打开 97 个浏览器标签页。
+
+**使用场景：** 竞品研究、最佳实践、行业趋势、时事信息
+
+## 组合模式
+
+真正的威力在“组合”：
+
+```
+Read @notes.md, search for best practices, and create a report following @templates/report.md
+```
+
+按你的目标自由组合即可。
+
+## 最佳实践
+
+- **说清楚**你想提取什么
+- **告诉 Claude**输出文件放哪里
+- 用**模板**保证一致的格式
+- 需要综合时就**引用多个文件**
+
+---
+
+## 下一步
+
+**[1.4：命令与导航 →](/zh/fundamentals/commands-navigation)** - Slash commands、快捷键与高级功能
+

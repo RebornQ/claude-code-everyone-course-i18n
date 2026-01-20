@@ -1,0 +1,159 @@
+---
+title: '1.7：项目记忆（CLAUDE.md）'
+description: '创建可跨会话持续生效的上下文：用 CLAUDE.md 让 Claude 记住你的项目。'
+keywords: 'CLAUDE.md,Claude Code 记忆,Claude Code 上下文,项目记忆'
+---
+
+## 1.7：项目记忆（CLAUDE.md）
+
+- **预计用时：** 15 分钟
+
+> **互动课程：** 在 Claude Code 里运行 `/start-1-7`
+
+## 额外资源
+
+- [官方文档：Memory](https://docs.anthropic.com/en/docs/claude-code/memory) - Anthropic 文档
+- [Awesome CLAUDE.md Files](https://github.com/jimmc414/awesome_claude_md) - 社区示例
+- [CLAUDE.md 生成器](https://claude-md.com/) - 生成 CLAUDE.md 的工具
+
+## “反复解释”问题
+
+每次开启一段新对话，你都要从零开始解释：
+- 项目背景
+- 你的偏好
+- 关键术语
+
+这会浪费时间，并打断工作流。
+
+## 什么是 CLAUDE.md？
+
+一个 Claude 每次会话都会自动读取的特殊文件：
+- **放在项目根目录**
+- **跨会话持久生效**
+- **写一次**，Claude 长期记住
+
+## “宪法”类比
+
+| 维度 | CLAUDE.md（宪法） | 你的提示词（立法） |
+|--------|--------------------------|----------------------------|
+| **优先级** | 更高权威 | 日常决策 |
+| **持久性** | 长期存在 | 每次请求临时生效 |
+| **冲突处理** | 以 CLAUDE.md 为准 | 必须符合 CLAUDE.md |
+
+CLAUDE.md 定底层约束，提示词处理具体任务细节。
+
+## CLAUDE.md 里该写什么？
+
+- 项目概览与目标
+- 关键指标与目标值
+- 利益相关方信息
+- 品牌口吻与限制
+- 用户画像
+- 术语规则（永远用 X，不用 Y）
+- 写作风格偏好
+- 不可变规则（永远要 / 永远不要）
+
+## CLAUDE.md 里不该写什么？
+
+- 临时信息（今天会议纪要）
+- 频繁变动的需求（本 sprint 的目标）
+- 敏感信息（API key、隐私数据）
+
+**检验标准：** 6 个月后你还希望 Claude 记得这件事吗？
+
+## CLAUDE.md 结构模板
+
+```markdown
+## Project Overview
+What it is, who it's for, your role
+
+## User Personas
+Key personas with pain points
+
+## Writing Style
+Voice, tone, formatting preferences
+
+## Terminology
+ALWAYS use X not Y
+
+## Immutable Rules
+Things that should always/never happen
+
+## Team Reference
+Key people and roles
+```
+
+## 用 `#` 写“临时规则”
+
+在会话里加临时规则：
+
+```
+# always use bullet points in this session
+```
+
+只对当前对话生效。适合先试验，确认有效后再写进 CLAUDE.md。
+
+## CLAUDE.md 层级
+
+| 层级 | 位置 | 作用范围 |
+|-------|----------|-------|
+| **全局** | `~/.claude/CLAUDE.md` | 你在所有项目的偏好 |
+| **项目** | `/project-root/CLAUDE.md` | 当前项目上下文 |
+| **目录** | `/project-root/subfolder/CLAUDE.md` | 特定目录范围 |
+| **本地** | `/project-root/CLAUDE.local.md` | 个人用（gitignored） |
+
+冲突时“更具体的”优先。所有层级叠加生效（不是替换）。
+
+## 如何高效使用层级
+
+| 层级 | 示例内容 |
+|-------|-----------------|
+| **全局** | “我喜欢简洁回答，用项目符号” |
+| **项目** | 产品概览、用户画像、术语规则 |
+| **目录** | 该目录的专属规则 |
+| **本地** | 不想分享给团队的个人偏好 |
+
+## 最佳实践
+
+### 具体，不要空泛
+- ❌ 反例：“用户喜欢简单界面”
+- ✅ 正例：“调研显示：必填字段 ≥3 会显著提升流失”
+
+### 用命令式语言
+- ❌ 反例：“如果能……就好了”
+- ✅ 正例：“ALWAYS include…”
+
+### 给规则补充上下文
+- ❌ 反例：“Use Workspace not Project”
+- ✅ 正例：“Use Workspace not Project - 我们要和传统 PM 工具概念区分”
+
+### 保持可扫描
+- 项目符号
+- 短段落
+- 加粗关键术语
+
+### 每季度复盘
+项目在变，CLAUDE.md 也应该跟着变。
+
+## 排查问题
+
+| 问题 | 解决方案 |
+|---------|----------|
+| 规则被忽略 | 用 ALWAYS/NEVER 明确写死 |
+| CLAUDE.md 没加载 | 确认文件名严格为 `CLAUDE.md` |
+| 太长 | 建议 50-200 行，细节另写链接 |
+
+## 真实场景
+
+- **个人“人生 OS”** - 目标、价值观、工作方式
+- **客户项目** - 每个客户的品牌口吻与历史
+- **写书** - 人物、剧情、风格指南
+- **副业** - 产品与定价、用户画像
+- **求职** - 目标角色/公司、你的叙事
+
+---
+
+## 下一步
+
+**[1.8：下一步 →](/zh/fundamentals/whats-next)** - 预览高级能力与模块 2
+

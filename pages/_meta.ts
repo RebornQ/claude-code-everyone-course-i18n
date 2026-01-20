@@ -6,5 +6,6 @@ export default
   "vibe-coding": "Module 2: Vibe Coding",
   "mini-lessons": "Mini Lessons",
   "cowork": "Complete Guide to Cowork",
-  "search": "Search"
+  "search": "Search",
+  "zh": { "display": "hidden" }
 }

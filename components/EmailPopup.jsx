@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
+import { useRouter } from 'next/router'
 
 // CC4E colors
 const colors = {
@@ -31,6 +32,9 @@ const trackEvent = (eventName, params = {}) => {
 const VARIANT = 'cheatsheet'
 
 export default function EmailPopup() {
+  const { asPath } = useRouter()
+  const isChinese = asPath === '/zh' || asPath.startsWith('/zh/')
+  const seenKey = isChinese ? 'cc4e-popup-seen-zh' : 'cc4e-popup-seen'
   const [isVisible, setIsVisible] = useState(false)
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState('idle') // idle, loading, success, error
@@ -39,17 +43,17 @@ export default function EmailPopup() {
 
   useEffect(() => {
     // Check if user has already seen the popup
-    const hasSeenPopup = localStorage.getItem('cc4e-popup-seen')
+    const hasSeenPopup = localStorage.getItem(seenKey)
     if (hasSeenPopup) return
 
     // Show popup after 10 seconds
     const timer = setTimeout(() => {
       setIsVisible(true)
-      trackEvent('popup_shown', { popup_type: 'email_signup', source: 'cc4e', variant: VARIANT })
+      trackEvent('popup_shown', { popup_type: 'email_signup', source: 'cc4e', variant: VARIANT, locale: isChinese ? 'zh' : 'en' })
     }, 10000)
 
     return () => clearTimeout(timer)
-  }, [])
+  }, [isChinese, seenKey])
 
   useEffect(() => {
     if (isVisible && inputRef.current) {
@@ -59,8 +63,8 @@ export default function EmailPopup() {
 
   const handleClose = () => {
     setIsVisible(false)
-    localStorage.setItem('cc4e-popup-seen', 'true')
-    trackEvent('popup_closed', { popup_type: 'email_signup', source: 'cc4e', variant: VARIANT })
+    localStorage.setItem(seenKey, 'true')
+    trackEvent('popup_closed', { popup_type: 'email_signup', source: 'cc4e', variant: VARIANT, locale: isChinese ? 'zh' : 'en' })
   }
 
   const handleSubmit = async (e) => {
@@ -90,18 +94,18 @@ export default function EmailPopup() {
 
       if (response.ok && data.success) {
         setStatus('success')
-        localStorage.setItem('cc4e-popup-seen', 'true')
-        trackEvent('popup_submitted', { popup_type: 'email_signup', source: 'cc4e', variant: VARIANT })
+        localStorage.setItem(seenKey, 'true')
+        trackEvent('popup_submitted', { popup_type: 'email_signup', source: 'cc4e', variant: VARIANT, locale: isChinese ? 'zh' : 'en' })
         setTimeout(() => {
           setIsVisible(false)
         }, 3000)
       } else {
         setStatus('error')
-        setErrorMessage(data.error || 'Something went wrong. Please try again.')
+        setErrorMessage(data.error || (isChinese ? '出错了，请稍后重试。' : 'Something went wrong. Please try again.'))
       }
     } catch (err) {
       setStatus('error')
-      setErrorMessage('Network error. Please try again.')
+      setErrorMessage(isChinese ? '网络错误，请稍后重试。' : 'Network error. Please try again.')
     }
   }
 
@@ -115,7 +119,7 @@ export default function EmailPopup() {
       {/* Popup */}
       <div className="popup-container">
         {/* Close button */}
-        <button className="popup-close" onClick={handleClose} aria-label="Close popup">
+        <button className="popup-close" onClick={handleClose} aria-label={isChinese ? '关闭弹窗' : 'Close popup'}>
           &times;
         </button>
 
@@ -123,17 +127,25 @@ export default function EmailPopup() {
           <div className="popup-content">
             <div className="popup-success">
               <span className="popup-success-icon">&#10003;</span>
-              <h3>Thank you!</h3>
-              <p>Check your inbox for the cheat sheet!</p>
+              <h3>{isChinese ? '谢谢！' : 'Thank you!'}</h3>
+              <p>{isChinese ? '请查看你的邮箱获取速查表！' : 'Check your inbox for the cheat sheet!'}</p>
             </div>
           </div>
         ) : (
           <div className="popup-content">
             {/* Header */}
             <div className="popup-header">
-              <h2>Want the full course in your inbox?</h2>
+              <h2>{isChinese ? '想把完整课程发到你的邮箱吗？' : 'Want the full course in your inbox?'}</h2>
               <p className="popup-subhead">
-                I'll remind you to come back + send you a <span className="highlight">bonus cheat sheet</span>. <strong>100% free.</strong>
+                {isChinese ? (
+                  <>
+                    我会提醒你回来学习，并发送一份 <span className="highlight">附赠速查表</span>。 <strong>完全免费。</strong>
+                  </>
+                ) : (
+                  <>
+                    I'll remind you to come back + send you a <span className="highlight">bonus cheat sheet</span>. <strong>100% free.</strong>
+                  </>
+                )}
               </p>
             </div>
 
@@ -144,27 +156,31 @@ export default function EmailPopup() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@email.com"
+                placeholder={isChinese ? 'you@email.com（你的邮箱）' : 'you@email.com'}
                 required
                 disabled={status === 'loading'}
               />
               <button type="submit" disabled={status === 'loading'}>
                 {status === 'loading' ? (
-                  <><Spinner /> Sending...</>
+                  <><Spinner /> {isChinese ? '发送中…' : 'Sending...'}</>
                 ) : (
-                  'Send me the course'
+                  (isChinese ? '把课程发给我' : 'Send me the course')
                 )}
               </button>
             </form>
             {status === 'error' && (
               <p className="popup-error">{errorMessage}</p>
             )}
-            <p className="popup-disclaimer">No spam. Unsubscribe anytime.</p>
+            <p className="popup-disclaimer">{isChinese ? '不发垃圾邮件，随时可取消订阅。' : 'No spam. Unsubscribe anytime.'}</p>
           </div>
         )}
 
         <div className="popup-footer">
-          Made with 🧡 and 🥞 by <a href="https://x.com/carlvellotti" target="_blank" rel="noopener noreferrer">Carl Vellotti</a>
+          {isChinese ? (
+            <>由 <a href="https://x.com/carlvellotti" target="_blank" rel="noopener noreferrer">Carl Vellotti</a> 用 🧡 和 🥞 制作</>
+          ) : (
+            <>Made with 🧡 and 🥞 by <a href="https://x.com/carlvellotti" target="_blank" rel="noopener noreferrer">Carl Vellotti</a></>
+          )}
         </div>
       </div>
 
