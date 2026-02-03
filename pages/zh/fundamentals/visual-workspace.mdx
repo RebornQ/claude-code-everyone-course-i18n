@@ -1,7 +1,7 @@
 ---
 title: '1.2：文件探索与可视化工作区'
-description: '把 Cursor（或 VS Code）和 Claude Code 放在一起使用：双窗格工作流，让你在 Claude 工作时也能看见文件。'
-keywords: 'Claude Code Cursor,Claude Code 可视化工作区,Claude Code 配置,双窗格工作流'
+description: '把 Nimbalyst 或 Cursor 与 Claude Code 放在一起使用：双窗格工作流，让你在 Claude 工作时也能看见文件。'
+keywords: 'Claude Code Nimbalyst,Claude Code Cursor,Claude Code 可视化工作区,Claude Code 配置,双窗格工作流'
 ---
 
 ## 1.2：文件探索与可视化工作区
@@ -14,35 +14,69 @@ keywords: 'Claude Code Cursor,Claude Code 可视化工作区,Claude Code 配置,
 
 **问题：** 终端很适合和 Claude 对话，但你看不到文件。
 
-**解决方案：** 在 Claude Code 旁边配一个编辑器。
+**解决方案：** 在 Claude Code 旁边配一个可视化编辑器。
 
 | 窗格 | 用途 |
 |------|------|
 | **左侧** | 文件浏览器（看见一切） |
 | **底部** | Claude Code 终端（操作一切） |
 
-## 配置 Cursor（或 VS Code）
+## 选择你的工具
 
-[Cursor](https://cursor.com) 是一个免费编辑器，非常适合与 Claude Code 搭配：
+### Nimbalyst（推荐）
+
+**适合：** 非技术用户，想要最顺滑的 Claude Code 体验
+
+![Nimbalyst - Claude Code 可视化工作区](/images/nimbalyst-hero.webp)
+
+[Nimbalyst](https://nimbalyst.com?ref=carlvellotti&utm_source=carlvellotti&utm_medium=ccforeveryone&utm_campaign=partner) 是一个为 Claude Code 量身打造的免费工作区，特点包括：
+
+- **所见即所得的 Markdown 编辑** - 看格式化后的内容，而不是原始语法
+- **文件差异对比（diff）** - 清楚看到 Claude 改了哪里
+- **可见隐藏文件夹** - 能看到 `.claude/` 文件夹（有些编辑器看不到）
+- **内置 Claude Code** - 在 Nimbalyst 里直接和 Claude 协作
+
+**[下载 Nimbalyst →](https://nimbalyst.com?ref=carlvellotti&utm_source=carlvellotti&utm_medium=ccforeveryone&utm_campaign=partner)**
+
+### Cursor
+
+**适合：** 想把 Cursor 自带的 AI 功能和 Claude Code 一起用的用户
+
+[Cursor](https://cursor.com) 是一个免费编辑器，可与 Claude Code 搭配使用：
 
 - Claude 工作时，你可以在界面里直观看到文件变化
-- Cursor 自带 AI 功能（你不一定需要它——Claude Code 更强）
+- Cursor 自带 AI 功能，你可以和 Claude Code 配合使用
 - 如果你更习惯 VS Code，也完全可以用 VS Code
 
-### 安装
+**[下载 Cursor →](https://cursor.com)**
+
+## 工具对比
+
+| 功能 | Nimbalyst | Cursor |
+|---------|-----------|--------|
+| **最适合** | 非技术工作 | Cursor AI + Claude Code |
+| **Claude Code** | 内置 | 在终端运行 |
+| **可见 `.claude/` 文件夹** | 是 | 是 |
+| **WYSIWYG Markdown** | 是 | 预览模式 |
+| **价格** | 免费 | 免费 |
+
+## 配置指南
+
+### Nimbalyst 配置
+
+1. **[下载 Nimbalyst](https://nimbalyst.com?ref=carlvellotti&utm_source=carlvellotti&utm_medium=ccforeveryone&utm_campaign=partner)** 并安装
+2. 打开 Nimbalyst
+3. 用 Nimbalyst 打开你的课程文件夹
+4. Claude Code 已内置——直接开始！
+
+### Cursor 配置
 
 1. 在 [cursor.com](https://cursor.com) 下载
 2. 运行安装程序
-3. 打开 Cursor
-
-## 在编辑器里运行 Claude Code
-
-1. **在 Cursor 打开终端：** `Ctrl+``（反引号键，Tab 上方）
-   - 或者：View → Terminal
-2. **进入你的文件夹：** `cd ~/Documents/your-folder`
-3. **输入 `claude` 并回车**
-
-此时：左侧可见文件，底部终端里是 Claude。
+3. 打开 Cursor 并打开你的课程文件夹
+4. **重要：** 左上角选择 “Editor”（不要选 “Agents”）
+5. 打开终端：`Ctrl+``（反引号键，Tab 上方）
+6. 输入 `claude` 并回车
 
 ## 探索陌生的文件结构
 
@@ -66,8 +100,8 @@ Claude 可以帮你快速梳理任何文件夹的结构。
 
 - `.md` 扩展名 = Markdown 格式
 - 文档领域的常见标准 - 大模型也很喜欢
-- **预览模式：** `Cmd/Ctrl+Shift+V` 查看格式化效果
-- **源码模式：** 查看标记文本
+- **预览模式：** `Cmd/Ctrl+Shift+V` 查看格式化效果（在 Cursor 中）
+- **Nimbalyst：** 默认显示格式化效果
 
 ## 真实场景
 
@@ -82,4 +116,3 @@ Claude 可以帮你快速梳理任何文件夹的结构。
 ## 下一步
 
 **[1.3：文件操作 →](/zh/fundamentals/working-with-files)** - 掌握 `@` 引用与文件操作模式
-

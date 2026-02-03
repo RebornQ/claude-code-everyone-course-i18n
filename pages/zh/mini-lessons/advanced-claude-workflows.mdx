@@ -1,0 +1,150 @@
+---
+title: '高级 Claude Code 工作流 | 免费互动 Claude Code 小课'
+description: '学习用 mermaid 图做上下文预加载、终端别名（alias）、自动修复错误的 Stop hooks，以及“无限初级工程师”思维。内容来自 Claire Vo 对 John Lindquist 的访谈。'
+keywords: 'john lindquist, claire vo, egghead, claude code hooks, mermaid diagrams, stop hooks, terminal aliases, context loading, 高级 claude code'
+ogImage: 'https://ccforeveryone.com/images/og-advanced-workflows.png'
+---
+
+# 迷你课程
+
+---
+
+## 高级 Claude Code 工作流
+
+### 这是什么？
+
+这是一份互动版课程，内容来自 Claire Vo 对 John Lindquist（egghead.io）的访谈 **How I AI**。它讲的是“资深工程师如何用 Claude Code 稳定产出可上线质量的结果”，包含一些很实用、但很多人不知道的高级技巧。
+
+**来源：** [How I AI: Advanced Claude Code techniques with John Lindquist](https://www.youtube.com/watch?v=LvLdNkgO-N0)
+
+### 你会学到什么？
+
+- **用 Mermaid 图做上下文预加载** - 让 Claude 一上来就理解你的代码库
+- **Stop hooks 自动修复错误** - Claude 在说“完成”之前先自检并修正
+- **“无限初级工程师”思维** - 把自动化当作“准备工作”，而不只是写代码更快
+
+### 观看原视频
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/LvLdNkgO-N0"
+  title="Advanced Claude Code techniques"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+></iframe>
+
+### 开始
+
+1. **下载课程文件夹：** [DOWNLOAD](https://github.com/carlvellotti/claude-code-everyone-course/releases/download/advanced-claude-workflows-v1.0/advanced-claude-workflows.zip)
+2. **在该文件夹中打开终端**
+3. **运行 `claude`，然后输入 `/start-lesson`**
+
+> **不熟悉终端？** 先看 [快速开始：安装](/zh/getting-started/installation)。
+
+---
+
+### 覆盖内容
+
+#### 1. 上下文加载的问题
+
+每次你在一个项目里启动 Claude Code，它都“没有记忆”。你问一句“解释一下认证流程”，Claude 往往得先在 50+ 个文件里搜索，再读 10-15 个文件，最后拼出一份答案。几乎每次新会话都会重复一遍。
+
+John Lindquist 的洞察是：**如果 Claude 在你提问之前，就已经知道你的架构呢？**
+
+#### 2. Mermaid 图
+
+Mermaid 图是一种文本格式，可以把应用的逻辑“压缩”成 AI 能瞬间消化的上下文。对人类来说它看起来像乱码，但 Claude 读得非常顺。
+
+在真实项目里，你可以为认证流程、数据库操作、API 路由等关键链路都准备一套图：只要这些图在启动时就被加载进 Claude 的上下文里，Claude 就不需要到处探索文件——它一开始就“知道”系统怎么连起来。
+
+#### 3. `--append-system-prompt` 参数
+
+你可以用这个方式在启动时把图加载进 Claude：
+
+```
+claude --append-system-prompt "$(cat .ai/diagrams/*.md)"
+```
+
+这个参数会把文本追加到 Claude 的基础指令里（在你开始聊天之前）。结果是：Claude 一启动就把你的架构“带在脑子里”。
+
+#### 4. 终端别名（Aliases）
+
+每次都输入那串命令很烦。解决方案：给 shell 配 alias。
+
+```bash
+alias cdi="claude --append-system-prompt \"\$(cat .ai/diagrams/*.md)\""
+alias x="claude --dangerously-skip-permissions"
+alias h="claude --model claude-haiku-4-5-20251001"
+```
+
+这样你以后只要输入 `cdi` 就行，不必记完整命令。通常把这些 alias 写进 `~/.zshrc`（或你的 shell 配置文件）后，每次开终端都会生效。
+
+#### 5. Stop Hooks
+
+一个很常见、也很折磨人的模式是：Claude 做完任务说 “Done!”，但项目里还有 TypeScript 报错。你把报错粘回去，Claude 修完又说 “Done!”。再来一轮……反复复制粘贴，非常浪费时间。
+
+**Stop hooks 用来解决这个。** Stop hook 会在 Claude 每次输出结束、等待你输入之前触发。你可以让它去跑质量检查（typecheck、lint、tests）。如果检查失败，hook 会把错误自动喂回给 Claude，Claude 会继续修复并重试。
+
+这样会一直循环到所有检查通过——你不需要再手动复制粘贴错误日志。
+
+#### 6. Hook 配置
+
+Stop hooks 配在 `.claude/settings.local.json`：
+
+```json
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npm run typecheck 2>&1 || echo '{\"decision\":\"block\",\"reason\":\"TypeScript errors found\"}'"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+模式很简单：跑一个检查；如果失败，就输出一段 JSON，包含 `"decision": "block"` 和失败原因。Claude 会读到这个“阻止信号”，然后继续修复问题。
+
+#### 7. “无限初级工程师”思维
+
+这是一个很强的 AI 自动化心智模型：
+
+**想象你有无限多的初级工程师——永远在线、不用开会、乐于做无聊工作。你会让他们做什么？**
+
+大多数人第一反应是“写代码更快”。但更有价值的其实是围绕代码的那些工作：
+- 追溯这段代码是谁写的、当时为什么这么写
+- 找出所有相关文件的历史（commit/PR 上下文）
+- 在动手前先写一份风险评估
+- 生成一份可审阅的技术方案（tech spec）
+- 修改后补齐文档
+- 给审阅者写一份清晰的 PR 总结
+
+这些全都是“提示词”能驱动的准备工作。AI 不是替你做判断——它是在替你做枯燥的前置工作，让你把精力留给真正重要的决策。
+
+#### 8. 处理 Drift（跑偏）
+
+有时 Claude 会越做越乱：你纠正它，它更乱。
+
+John 的方法是：**别硬刚。** 导出对话，把内容粘到另一个模型里（ChatGPT、Gemini 等），问它一句：“这里是从哪里开始跑偏的？” 另一个模型不会卡在同一个“误区”里，往往能更客观地指出 drift 发生的位置。
+
+这就像让同事帮你看一段很乱的邮件线程——新鲜视角能看到你看不到的问题。
+
+---
+
+### 完成后
+
+你将获得：
+- 一份可套用到你自己项目的 Mermaid 示例图
+- 在课程文件夹里跑起来的 stop hook 配置
+- 保存到文件里的自定义 alias
+- 一个用于思考自动化的“无限初级工程师”框架
+
+**下载课程文件夹：** [DOWNLOAD](https://github.com/carlvellotti/claude-code-everyone-course/releases/download/advanced-claude-workflows-v1.0/advanced-claude-workflows.zip)
+
